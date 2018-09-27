@@ -6,6 +6,17 @@ from django.http  import HttpResponse
 def welcome(request):
     return HttpResponse('Welcome to the Moringa Tribune')
 
+def convert_dates(dates):
+
+    # Function that gets the weekday number for the date.
+    day_number = dt.date.weekday(dates)
+
+    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
+
+    # Returning the actual day of the week
+    day = days[day_number]
+    return day
+
 def news_of_day(request):
     date = dt.date.today()
 
