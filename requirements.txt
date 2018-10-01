@@ -1,9 +1,11 @@
 atomicwrites==1.2.1
 attrs==18.2.0
+confusable-homoglyphs==3.2.0
 dj-database-url==0.5.0
 Django==1.11
 django-bootstrap3==11.0.0
 django-heroku==0.3.1
+django-registration==2.4.1
 gunicorn==19.9.0
 more-itertools==4.3.0
 Pillow==5.3.0
