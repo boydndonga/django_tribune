@@ -17,12 +17,10 @@ def convert_dates(dates):
     day = days[day_number]
     return day
 
-def news_of_day(request):
+def news_today(request):
     date = dt.date.today()
-
-    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
-    day = convert_dates(date)
-    return render(request, 'all-news/today-news.html', {"date": date,})
+    news = Article.todays_news()
+    return render(request, 'all-news/today-news.html', {"date": date,"news":news})
 
 def past_days_news(request,past_date):
 
