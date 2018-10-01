@@ -6,7 +6,7 @@ def send_welcome_email(name,receiver):
     subject = 'Welcome to the MoringaTribune NewsLetter'
     sender = 'james@moringaschool.com'
 
-    #passing in the context vairables
+    #passing in the context vari ables
     text_content = render_to_string('email/newsemail.txt',{"name": name})
     html_content = render_to_string('email/newsemail.html',{"name": name})
 
