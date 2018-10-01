@@ -19,9 +19,16 @@ def convert_dates(dates):
     return day
 
 def news_today(request):
-    date = dt.date.today()
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            print('valid')
+    else:
+        form = NewsLetterForm()
     news = Article.todays_news()
-    return render(request, 'all-news/today-news.html', {"date": date,"news":news})
+    date = dt.date.today()
+    return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
+    
 
 def past_days_news(request, past_date):
     try:
