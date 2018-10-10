@@ -11,11 +11,17 @@ from rest_framework import status
 from .serializer import MerchSerializer
 from .permissions import IsAdminOrReadOnly
 
-class MerchList(APIView):
+class MerchDescription(APIView):
     permission_classes = (IsAdminOrReadOnly,)
-    def get(self, request, format=None):
-        all_merch = MoringaMerch.objects.all()
-        serializers = MerchSerializer(all_merch, many=True)
+    def get_merch(self, pk):
+        try:
+            return MoringaMerch.objects.get(pk=pk)
+        except MoringaMerch.DoesNotExist:
+            return Http404
+
+    def get(self, request, pk, format=None):
+        merch = self.get_merch(pk)
+        serializers = MerchSerializer(merch)
         return Response(serializers.data)
 
     def post(self, request, format=None):
