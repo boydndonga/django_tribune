@@ -1,10 +1,13 @@
 import datetime as dt
 from django.shortcuts import render
 from django.http import HttpResponse, Http404,HttpResponseRedirect
-from .models import Article,Editor,NewsLetterRecipients
+from .models import Article,Editor,NewsLetterRecipients,MoringaMerch
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 from .forms import NewArticleForm, NewsLetterForm
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import MerchSerializer
 
 
 # Create your views here.
