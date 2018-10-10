@@ -74,7 +74,7 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'bootstrap3',
     'tinymce',
-    '`rest`_framework',
+    'rest_framework',
     'rest_framework.authtoken'
 ]
 
@@ -114,7 +114,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     )
-}
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
