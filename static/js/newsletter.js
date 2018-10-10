@@ -3,4 +3,4 @@ $(document).ready(function(){
       event.preventDefault()
     }) // End of submit event
   
-  }) // End of document ready function
+  }) // End of document ready function  

@@ -38,6 +38,15 @@ def news_today(request):
     date = dt.date.today()
     return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
     
+def newsletter(request):
+    name = request.POST.get('your_name')
+    email = request.POST.get('email')
+
+    recipient = NewsLetterRecipients(name=name, email=email)
+    recipient.save()
+    send_welcome_email(name, email)
+    data = {'success': 'You have been successfully added to mailing list'}
+    return JsonResponse(data)
 
 def past_days_news(request, past_date):
     try:
