@@ -23,17 +23,17 @@ def convert_dates(dates):
     return day
 
 def news_today(request):
-    if request.method == 'POST':
-        form = NewsLetterForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['your_name']
-            email = form.cleaned_data['email']
-            recipient = NewsLetterRecipients(name = name,email =email)
-            recipient.save()
-            send_welcome_email(name,email)
-            HttpResponseRedirect('news_today')
-    else:
-        form = NewsLetterForm()
+    # if request.method == 'POST':
+    #     form = NewsLetterForm(request.POST)
+    #     if form.is_valid():
+    #         name = form.cleaned_data['your_name']
+    #         email = form.cleaned_data['email']
+    #         recipient = NewsLetterRecipients(name = name,email =email)
+    #         recipient.save()
+    #         send_welcome_email(name,email)
+    #         HttpResponseRedirect('news_today')
+    # else:
+    `form = NewsLetterForm()
     news = Article.todays_news()
     date = dt.date.today()
     return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
