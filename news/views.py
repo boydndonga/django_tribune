@@ -14,7 +14,7 @@ class MerchList(APIView):
         all_merch = MoringaMerch.objects.all()
         serializers = MerchSerializer(all_merch, many=True)
         return Response(serializers.data)
-        
+
 # Create your views here.
 def welcome(request):
     return render(request, 'welcome.html')
@@ -41,7 +41,7 @@ def news_today(request):
     #         send_welcome_email(name,email)
     #         HttpResponseRedirect('news_today')
     # else:
-    `form = NewsLetterForm()
+    form = NewsLetterForm()
     news = Article.todays_news()
     date = dt.date.today()
     return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
